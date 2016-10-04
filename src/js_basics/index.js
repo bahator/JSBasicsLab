@@ -37,10 +37,14 @@ export const isPalindrome = (str) => {
   // str will be an string
   // Return true if it is a palindrome and false otherwise.
   // It should be case insensitive and not consider space or punctuation.
-    return str.toLowerCase()==reverseString(str.toLowerCase());
+    return str.toLowerCase().replace(" .,/#!$%^&*;:{}=-_`~()]","")==reverseString(str.toLowerCase().replace(" .,/#!$%^&*;:{}=-_`~()]",""));
 };
 
 export const nestedSum = (arr) => {
   // arr will be an array, containing integers, strings and/or arrays like itself
   // Return the sum all the numbers you find, anywhere in the nest of arrays.
+
+    if(typeof arr ==="number") return arr;
+    else if(arr instanceof Array) return nestedSum(arr[0])+(arr.length >1 ? nestedSum(arr.slice(1, arr.length)) : 0);
+    return 0;
 };
