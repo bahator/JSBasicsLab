@@ -2,11 +2,16 @@
 export const isNumberEven = (i) => {
   // i will be an integer.
   // Return true if it's even, and false if it isn't.
+    return i % 2==0;
+
 };
 
 export const getFileExtension = (str) => {
   // str will be a string, but it may not have a file extension.
-  // Return the file extension (with no period) if it has one, otherwise false
+  // Return the file extension (with no period) if it has one, otherwise
+    if(str.lastIndexOf('.')== -1) return false;
+    return str.split(".")[str.split(".").length-1];
+
 };
 
 export const longestString = (arr) => {
