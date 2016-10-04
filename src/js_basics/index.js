@@ -1,4 +1,8 @@
 
+function isString(str){
+    return typeof str === 'string' || str instanceof String
+}
+
 export const isNumberEven = (i) => {
   // i will be an integer.
   // Return true if it's even, and false if it isn't.
@@ -13,19 +17,9 @@ export const getFileExtension = (str) => {
 
 };
 
-export const longestString = (arr) => {
-  // arr will be an array.
-  // Return the longest string in the array
-  return arr.sort(function(a,b){
-      if (a instanceof String)
-          if(b instanceof String)
-                return a-b;
-          else return 1;
-      else
-         if(b instanceof String)
-             return -1
-      return 0;});
-};
+// arr will be an array.
+// Return the longest string in the array
+export const longestString = (arr) => arr.sort((a,b) => ((isString(b) ? b.length : -1) - (isString(a) ? a.length : -1)))[0]
 
 export const reverseString = (str) => {
   // str will be an string
